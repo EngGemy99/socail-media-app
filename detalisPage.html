@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media App ❤💻</title>
+    <link rel="stylesheet" href="assets/iziToast.min.css" />
+    <link rel="stylesheet" href="dist/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
+    />
+  </head>
+
+  <body class="dark:bg-slate-800 bg-[#eee]">
+    <!-- MODALS -->
+
+    <!-- Modal LOGIN-->
+    <div
+      class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog relative w-auto pointer-events-none">
+        <div
+          class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+        >
+          <div
+            class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+          >
+            <h5
+              class="text-xl font-medium leading-normal text-gray-800"
+              id="exampleModalLabel"
+            >
+              login
+            </h5>
+            <button
+              type="button"
+              class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body relative p-4">
+            <input
+              id="userName"
+              type="text"
+              class="mb-3 form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput2"
+              placeholder="user name"
+            />
+            <input
+              id="password"
+              type="password"
+              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput2"
+              placeholder="password"
+            />
+          </div>
+          <div
+            class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+          >
+            <button
+              id="loginModalCloseBtn"
+              type="button"
+              class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              onclick="handelBtnLogin()"
+              type="button"
+              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal LOGIN-->
+
+    <!-- Modal Register-->
+    <div
+      class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+      id="registerModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog relative w-auto pointer-events-none">
+        <div
+          class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+        >
+          <div
+            class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+          >
+            <h5
+              class="text-xl font-medium leading-normal text-gray-800"
+              id="exampleModalLabel"
+            >
+              Register
+            </h5>
+            <button
+              type="button"
+              class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body relative p-4">
+            <input
+              id="userNameRegister"
+              type="text"
+              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out mb-2 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput2"
+              placeholder="user name"
+            />
+            <input
+              id="passwordRegister"
+              type="password"
+              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out mb-2 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput2"
+              placeholder="password"
+            />
+            <input
+              id="nameRegister"
+              type="text"
+              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out mb-2 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput2"
+              placeholder="name"
+            />
+            <input
+              id="emailRegister"
+              type="email"
+              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out mb-2 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput2"
+              placeholder="Enter Your Email"
+            />
+            <input
+              id="profileImage"
+              type="file"
+              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out mb-2 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput2"
+              placeholder="Profile Pic"
+            />
+          </div>
+          <div
+            class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+          >
+            <button
+              id="registerModalCloseBtn"
+              type="button"
+              class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+              onclick="handelBtnRegister()"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Register-->
+
+    <!-- add post Modal -->
+    <div
+      class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+      id="addPostModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog relative w-auto pointer-events-none">
+        <div
+          class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+        >
+          <div
+            class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+          >
+            <h5
+              class="text-xl font-medium leading-normal text-gray-800"
+              id="model-post-title"
+            >
+              Add Post
+            </h5>
+            <button
+              type="button"
+              class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body relative p-4">
+            <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+              <form>
+                <div class="form-group mb-6">
+                  <input
+                    type="text"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    id="post-title-input"
+                    placeholder="title"
+                  />
+                  <input type="hidden" id="hiddenInput" />
+                </div>
+                <div class="form-group mb-6">
+                  <textarea
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    id="postBody"
+                    rows="3"
+                    placeholder="post body"
+                  ></textarea>
+                </div>
+                <div class="form-group mb-6">
+                  <input
+                    type="file"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    id="postImage"
+                    placeholder="post image"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div
+            class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+          >
+            <button
+              id="addPostModalCloseBtn"
+              type="button"
+              class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              id="add-post-btn"
+              type="button"
+              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+              onclick="handelAddPostBtn()"
+            >
+              Add Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //add post Modal //-->
+    <!--===================== MODALS================== -->
+
+    <!-- MENU -->
+    <div
+      id="menuList"
+      class="md:hidden z-10 fixed transition-transform h-screen w-9/12 right-0 rounded-tl-lg rounded-bl-lg translate-x-[100%] p-10 bg-white dark:bg-slate-800"
+    >
+      <div class="close absolute top-4 left-4 cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-7 h-7 text-red-700"
+          onclick="closeMenu()"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </div>
+      <div class="flex flex-col h-full">
+        <div class="text-center mt-3">
+          <a
+            href="index.html"
+            class="text-2xl text-cyan-600 font-bold cursor-pointer"
+            >Lamtna</a
+          >
+          <ul class="mt-5 space-y-4 text-center">
+            <li>
+              <a href="index.html" class="text-cyan-600">Home</a>
+            </li>
+            <li>
+              <a
+                href="profile.html"
+                class="dark:hover:text-cyan-600 hover:text-cyan-600 dark:text-white text-black ease-in duration-200"
+                >Profile</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="sm:hidden my-auto flex gap-4 justify-center flex-wrap">
+          <button
+            onclick="handelAddPostUI()"
+            data-bs-toggle="modal"
+            data-bs-target="#addPostModal"
+            type="button"
+            class="addPostBtnList inline-block px-6 py-2.5 bg-green-600 font-medium text-xs rounded text-white"
+          >
+            Add Post
+          </button>
+          <button
+            onclick="switchMode()"
+            type="button"
+            class="hidden dark:inline-block px-6 py-2.5 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
+          >
+            Light
+          </button>
+          <button
+            onclick="switchMode()"
+            type="button"
+            class="dark:hidden inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
+          >
+            Dark
+          </button>
+        </div>
+        <div
+          class="user-information mt-auto text-center flex xs:flex-col justify-between items-center"
+        >
+          <div class="flex items-center flex-col sm:flex-row">
+            <img src="" class="w-10 mx-auto h-10 rounded-full userImage" />
+            <p
+              class="ml-2 text-black dark:text-white userName break-all my-5"
+            ></p>
+          </div>
+          <button
+            type="button"
+            class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"
+            onclick="logout()"
+          >
+            LogOut
+          </button>
+        </div>
+        <div class="btns mt-auto text-center flex justify-center items-center">
+          <button
+            class="mr-3 bg-cyan-600 p-3 rounded-md cursor-pointer text-white font-bold"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            Login
+          </button>
+          <button
+            class="bg-lime-500 p-3 rounded-md cursor-pointer text-white font-bold"
+            data-bs-toggle="modal"
+            data-bs-target="#registerModal"
+          >
+            Register
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--// MENU// -->
+
+    <!-- SWITCH BTN -->
+    <div
+      class="fixed left-5 bottom-3 w-10 h-10 rounded-full place-content-center cursor-pointer ring-4 bg-white dark:bg-slate-800 xs:hidden sm:grid"
+      onclick="switchMode()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 block dark:hidden"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 hidden dark:block text-white"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+        />
+      </svg>
+    </div>
+    <!--// SWITCH BTN// -->
+
+    <!-- ADD POST BUTTON -->
+    <div
+      class="addPostBtn cursor-pointer ring-4 rounded-full p-2 text-black dark:text-white bottom-4 right-2 xs:hidden sm:block"
+      data-bs-toggle="modal"
+      data-bs-target="#addPostModal"
+      onclick="handelAddPostUI()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <!--// ADD POST BUTTON// -->
+
+    <!-- MAIN CONTAINER -->
+    <div class="container m-auto xl:w-[1200px]">
+      <div class="w-9/12 mx-auto">
+        <!-- NAVBAR -->
+        <nav
+          class="bg-white shadow-md rounded-md dark:bg-slate-800 flex items-center p-5 h-14 justify-between"
+        >
+          <!-- LOGO -->
+          <div class="sm:text-2xl text-cyan-600 font-bold cursor-pointer">
+            <a href="index.html">Lamtna</a>
+          </div>
+          <!--// LOGO //-->
+          <!-- LINKS -->
+          <ul class="mr-auto ml-4 hidden md:flex">
+            <li class="mr-2">
+              <a href="index.html" class="text-cyan-600">Home</a>
+            </li>
+            <li>
+              <a
+                href="profile.html"
+                class="dark:text-white text-black dark:hover:text-cyan-600 hover:text-cyan-600 ease-in duration-200"
+                >Profile</a
+              >
+            </li>
+          </ul>
+          <!--// LINKS //-->
+          <div class="ml-auto hidden md:block">
+            <div class="btns">
+              <button
+                class="bg-cyan-600 p-2 mr-3 rounded-md cursor-pointer text-white font-bold"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+              >
+                Login
+              </button>
+              <button
+                class="bg-lime-500 p-2 rounded-md cursor-pointer text-white font-bold"
+                data-bs-toggle="modal"
+                data-bs-target="#registerModal"
+              >
+                Register
+              </button>
+            </div>
+            <div class="user-information items-center">
+              <img src="" class="w-10 h-10 rounded-full ring-2 userImage" />
+              <p class="mx-3 text-black dark:text-white userName"></p>
+              <button
+                class="bg-cyan-600 p-2 rounded-md cursor-pointer text-white font-bold"
+                onclick="logout()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="menu md:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-cyan-600 cursor-pointer"
+              data-menu="menu"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+              />
+            </svg>
+          </div>
+        </nav>
+        <!--// NAVBAR //-->
+
+        <!-- Post Area -->
+        <div class="postArea mt-10">
+          <div class="mb-3 border border-blue-300 shadow-md rounded-md">
+            <div class="header border-b p-4 flex items-center">
+              <div class="user-data flex items-center cursor-pointer mr-auto">
+                <img
+                  id="profileImage"
+                  src=""
+                  class="ring-2 w-6 h-6 rounded-full"
+                />
+                <p
+                  class="ml-3 text-black dark:text-white xs:hidden"
+                  id="userName"
+                ></p>
+              </div>
+            </div>
+            <div class="body p-4 bg-white dark:bg-slate-800">
+              <img src="" class="rounded-md w-full" id="image" />
+              <h3 class="title mb-4 text-cyan-600" id="title"></h3>
+              <p
+                class="text-gray-500 border-b break-all border-gray-400 pb-2"
+                id="body"
+              ></p>
+              <div class="comments mt-2">
+                <p class="text-gray-400">
+                  <span id="commentsCount"></span> comments
+                </p>
+              </div>
+            </div>
+            <div id="commentsContainer"></div>
+            <div class="mb-3 flex xs:flex-col">
+              <input
+                id="commentValue"
+                type="text"
+                class="flex-1 px-3 py-1.5 text-base font-normal text-gray-700 bg-whi te bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Add Comment..."
+              />
+              <button
+                type="submit"
+                onclick="handelAddComment()"
+                class="xs:mx-auto xs:mt-3 xs:w-1/2 px-6 w-1/3 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              >
+                add Comment
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- //Post Area// -->
+      </div>
+    </div>
+    <!--// MAIN CONTAINER //-->
+    <!-- nice alert  -->
+    <script src="assets/iziToast.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="js/shared.js"></script>
+    <script src="js/detalisPage.js"></script>
+  </body>
+</html>
